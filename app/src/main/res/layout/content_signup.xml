@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.pathrer.event.SignupActivity"
+    tools:showIn="@layout/activity_signup"
+    android:weightSum="1">
+
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/nameid"
+        android:hint="@string/dfs"
+        android:layout_marginTop="118dp"
+        android:layout_alignRight="@+id/sbuttonid"
+        android:layout_alignEnd="@+id/sbuttonid" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/emailid"
+        android:layout_below="@+id/nameid"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/mails" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passid"
+        android:hint="@string/pass"
+        android:layout_below="@+id/phoneid"
+        android:layout_alignRight="@+id/sbuttonid"
+        android:layout_alignEnd="@+id/sbuttonid" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/phoneid"
+        android:hint="@string/phone"
+        android:layout_below="@+id/emailid"
+        android:layout_alignLeft="@+id/emailid"
+        android:layout_alignStart="@+id/emailid" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/butt"
+        android:id="@+id/sbuttonid"
+        android:layout_below="@+id/passid"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/mErrorField"
+        android:layout_below="@+id/sbuttonid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp" />
+</RelativeLayout>
