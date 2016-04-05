@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -63,6 +64,10 @@
         <activity
             android:name=".Priests"
             android:label="@string/title_activity_priests"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".upload"
+            android:label="@string/title_activity_upload"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
