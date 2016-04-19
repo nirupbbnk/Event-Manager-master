@@ -9,15 +9,32 @@ public class ListItems {
     public String title;
     public String place;
     public String price;
+    public String phno;
+    public String email;
     public ParseFile image;
 
     public ListItems(){}
 
-    public ListItems(String tit, String pla,String pri,ParseFile im) {
+    public ListItems(String tit, String pla,String pri,String email,String phno,ParseFile im) {
         title = tit;
         place = pla;
         price = pri;
         image = im;
+        this.email = email;
+        this.phno = phno;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+    public void setEmail(String s){
+        email=s;
+    }
+    public void setPhno(String ph){
+        phno = ph;
+    }
+    public String getPhno(){
+        return phno;
     }
 
     public String getTitle() {
