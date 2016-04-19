@@ -56,7 +56,6 @@ public class Venues extends Fragment{
                    }
                   // MainActivity.this.listview.setAdapter(new CustomAdapter(MainActivity.this, list));
                }
-
            }
        });
 

@@ -80,7 +80,7 @@ public class upload extends AppCompatActivity {
         price = (EditText) findViewById(R.id.uprice);
         image = (ImageView) findViewById(R.id.uimage);
         b1 = (Button) findViewById(R.id.ubutton);
-
+        image.setImageResource(R.drawable.tumb);
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -8,8 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.GetDataCallback;
 import com.parse.ParseException;
@@ -17,23 +19,33 @@ import com.parse.ParseFile;
 
 import java.util.List;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
+public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder>  {
 
     private List<ListItems> moviesList;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title, place, price;
         public ImageView image;
+        public TextView btn;
 
-        public MyViewHolder(View view) {
-            super(view);
-            title = (TextView) view.findViewById(R.id.titleid);
-            place = (TextView) view.findViewById(R.id.placeid);
-            price = (TextView) view.findViewById(R.id.priceid);
-            image = (ImageView) view.findViewById(R.id.image);
+        public MyViewHolder(View itemview) {
+            super(itemview);
+            title = (TextView) itemview.findViewById(R.id.titleid);
+            place = (TextView) itemview.findViewById(R.id.placeid);
+            price = (TextView) itemview.findViewById(R.id.priceid);
+            image = (ImageView) itemview.findViewById(R.id.image);
+            btn = (TextView) itemview.findViewById(R.id.btnid);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(), "inside viewholder position = " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
         }
-    }
 
+        }
 
     public CustomAdapter(List<ListItems> moviesList) {
         this.moviesList = moviesList;
@@ -67,8 +79,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         });
     }
 
+
     @Override
     public int getItemCount() {
         return moviesList.size();
     }
+
+
 }

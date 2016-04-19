@@ -38,11 +38,12 @@
         android:hint="price(in Rs)" />
 
     <ImageView
-        android:layout_width="250px"
-        android:layout_height="250px"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:id="@+id/uimage"
         android:layout_below="@+id/uprice"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:contentDescription="choose image" />
 
     <Button
         android:layout_width="wrap_content"
