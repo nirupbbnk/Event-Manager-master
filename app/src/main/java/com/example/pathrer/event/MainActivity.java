@@ -2,8 +2,10 @@ package com.example.pathrer.event;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.parse.ParseUser;
 
@@ -41,6 +44,41 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Snackbar snackbar = Snackbar
+                .make(findViewById(R.id.snackbar123),"Welcome to Event Manager", Snackbar.LENGTH_LONG);
+
+
+// Changing action button text color
+        View sbView = snackbar.getView();
+        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(getResources().getColor(R.color.material_deep_orange_500));
+        snackbar.show();
+
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            // fetch data
+        } else {
+            Snackbar snackbar1 = Snackbar
+                    .make(findViewById(R.id.snackbar123), "No internet connection!", Snackbar.LENGTH_LONG)
+                    .setAction("RETRY", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
+                        }
+                    });
+
+// Changing message text color
+            snackbar1.setActionTextColor(Color.RED);
+
+// Changing action button text color
+            View sbView1 = snackbar.getView();
+            TextView textView1 = (TextView) sbView1.findViewById(android.support.design.R.id.snackbar_text);
+            textView1.setTextColor(Color.YELLOW);
+            snackbar1.show();
+        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

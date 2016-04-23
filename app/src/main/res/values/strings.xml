@@ -4,6 +4,7 @@
     <string name="fhg">LogIn</string>
 
     <string name="title_activity_login">LoginActivity</string>
+    <string name="welcome">Welcome to Event Manger</string>
     <string name="h">LogIn</string>
     <string name="gk">emailid</string>
     <string name="khh">emailid</string>
