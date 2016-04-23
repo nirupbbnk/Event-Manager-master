@@ -44,20 +44,23 @@ public class Venues extends Fragment{
        super.onCreate(savedInstanceState);
        //initialize datasets
        ParseQuery<ParseObject> query = new ParseQuery<>("convention");
-       query.include("owner_detail");
+       query.include("owner_details");
        query.findInBackground(new FindCallback<ParseObject>() {
            @Override
            public void done(List<ParseObject> list, ParseException e) {
                if (e == null) {
 
                    for(ParseObject obj : list){
-                       ListItems event = new ListItems(obj.getString("hall_name"),obj.getString("city"),obj.getString("price"),obj.getParseObject("owner_detail").getString("email"),obj.getParseObject("owner_detail").getString("phone"),obj.getParseFile("image"));
+                       ListItems event = new ListItems(obj.getString("hall_name"),obj.getString("city"),obj.getString("price"),obj.getParseObject("owner_details").getString("email"),obj.getParseObject("owner_details").getString("phone"),obj.getParseFile("image"));
                        dbObjects.add(event);
                    }
                   // MainActivity.this.listview.setAdapter(new CustomAdapter(MainActivity.this, list));
                }
            }
        });
+
+
+
 
    }
 

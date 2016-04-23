@@ -1,11 +1,13 @@
 package com.example.pathrer.event;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     protected EditText mpass;
     protected Button mbuttton;
     protected Button msignbuttton;
-
+    protected ProgressDialog pdia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +54,19 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String username = muser.getText().toString().trim();
+                if(TextUtils.isEmpty(username)) {
+                    muser.setError("Enter Username");
+                    return;
+                }
                 String password = mpass.getText().toString().trim();
+                if(TextUtils.isEmpty(password)) {
+                    mpass.setError("Enter Password");
+                    return;
+                }
 
                 //parse login
+                LoginActivity.this.pdia = ProgressDialog.show(LoginActivity.this,null,"Logging in..... ",true);
+                //showdialog();
 
                 ParseUser.logInInBackground(username, password, new LogInCallback() {
                     public void done(ParseUser user, ParseException e) {
@@ -62,10 +74,11 @@ public class LoginActivity extends AppCompatActivity {
                             // Hooray! The user is logged in.
                             Toast.makeText(LoginActivity.this, "logged up!!!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            finish();
 
                         } else {
 //
-
+                            pdia.dismiss();
                             Toast.makeText(LoginActivity.this, "wrong username or password!!!", Toast.LENGTH_SHORT).show();
 
 
@@ -76,12 +89,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
         });
-
-
-
-
-
-
 
     }
 

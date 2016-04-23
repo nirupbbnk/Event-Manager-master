@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="24.0dip"
             android:layout_marginBottom="24.0dip"
-            android:text="Venues"
+            android:text="Event"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             />

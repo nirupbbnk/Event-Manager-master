@@ -1,7 +1,9 @@
 package com.example.pathrer.event;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -33,8 +35,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         public String email;
         public String phno;
         private final Context context;
+        final CharSequence[] items = {" Gmail "," Phone "};
 
-        public MyViewHolder(View itemview) {
+        public MyViewHolder(final View itemview) {
             super(itemview);
             context = itemview.getContext();
             title = (TextView) itemview.findViewById(R.id.titleid);
@@ -43,17 +46,42 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             image = (ImageView) itemview.findViewById(R.id.image);
             btn = (TextView) itemview.findViewById(R.id.btnid);
             email="hello";
+
          itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(v.getContext(), "inside viewholder position = " + email, Toast.LENGTH_SHORT).show();
-                    Intent sendIntent = new Intent(Intent.ACTION_VIEW);
-                    sendIntent.setType("plain/text");
-                    sendIntent.setData(Uri.parse(email));
-                    sendIntent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
-                    sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Intrested to book");
-                    sendIntent.putExtra(Intent.EXTRA_TEXT, "This message is from user with above mail interested in booking your service :-)");
-                    context.startActivity(sendIntent);
+             @Override
+             public void onClick(View v) {
+                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                 builder.setTitle("Book through..");
+
+                 builder.setCancelable(false);
+                 builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                     public void onClick(DialogInterface dialog, int item) {
+
+
+                         switch (item) {
+                             case 0:
+                                 Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+                                 sendIntent.setType("plain/text");
+                                 sendIntent.setData(Uri.parse(email));
+                                 sendIntent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
+                                 sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Intrested to book");
+                                 sendIntent.putExtra(Intent.EXTRA_TEXT, "This message is from user with above mail interested in booking your service :-)");
+                                 context.startActivity(sendIntent);
+                                 break;
+                             case 1:
+                                 // Your code when 2nd  option seletced
+                                 Intent jack = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phno, null));
+                                 context.startActivity(jack);
+
+                                 break;
+
+
+                         }
+                         dialog.dismiss();
+                     }
+                 }).setNegativeButton("Cancel", null).show();
+                 AlertDialog levelDialog = builder.create();
+                 levelDialog.show();
 
                 }
             });

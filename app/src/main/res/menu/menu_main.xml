@@ -11,8 +11,15 @@
     <item
         android:id="@+id/logoutid"
         android:title="@string/logout"
-        app:showAsAction="always">
+        app:showAsAction="never">
 
     </item>
+    <item
+        android:id="@+id/aboutid"
+        android:title="About us"
+        app:showAsAction="never">
+
+    </item>
+
 
 </menu>

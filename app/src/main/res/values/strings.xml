@@ -2,6 +2,7 @@
     <string name="app_name">event</string>
     <string name="action_settings">Settings</string>
     <string name="fhg">LogIn</string>
+
     <string name="title_activity_login">LoginActivity</string>
     <string name="h">LogIn</string>
     <string name="gk">emailid</string>
@@ -10,7 +11,7 @@
     <string name="signf">Not yet registered? SignUp!</string>
     <string name="hj">LogIn</string>
     <string name="bb">password</string>
-    <string name="bn">email</string>
+    <string name="bn">user name</string>
     <string name="ghj">Not yet registered?</string>
     <string name="vbn">Sign up</string>
     <string name="title_activity_signup">Signup</string>
@@ -38,4 +39,15 @@
     <string name="f">Book</string>
     <string name="ib">image</string>
     <string name="title_activity_upload">upload</string>
+
+    <string-array name="planets_array">
+        <item>NONE SELECT</item>
+        <item>Priests</item>
+        <item>Stage Decor</item>
+        <item>Venues</item>
+        <item>Catering</item>
+        <item>Managers</item>
+
+    </string-array>
+    <string name="title_activity_aboutus">Aboutus</string>
 </resources>
