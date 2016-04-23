@@ -1,0 +1,6 @@
+# Event-Manager-master
+ “Event Manager” is an android application that assists people to organize parties for different occasions in a much simple and organized way.
+The aim of “Event Manager” is to create an android application that would provide all the required information about the convention halls, catering assistants, priests, photo studios, flower decors, event managers. If the user wishes to have an assistant for maintaining all the tasks the customer can choose the event assistants.
+To create an easy and user friendly interface throughout the application, so that less effort is needed by the users.
+This application also assists the customers to organize the party in an efficient way within the budget.
+For security reasons only the registered users are allowed to access the application and avail the services provided by the application. The registered user can make use of this application to view the current available service providers in all the above mentioned departments. The vendors are allowed to upload the services they are ready to provide by just filling the vendor registration form provided by the application. This feature makes it easy for the vendors to showcase their services online in a much simpler and secured way. 
